@@ -65,18 +65,12 @@ public class Server{
         @Override
         public void run() {
 
-            try {
-                receive(client_socket);
+            try(Socket t = client_socket) {
+                receive(t);
             } catch (IOException | ClassNotFoundException | SQLException ex) {
                 System.err.println("Error: " + ex.getMessage());
-            } finally {
-                try {
-                    client_socket.close();
-                    System.out.println("Socket closed");
-                } catch (IOException ex) {
-                    System.err.println("Socket not closed");
-                }
             }
+            System.out.println("Socket closed");
         }
 }
       
