@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.LinkedList;
+import java.util.List;
+
 import memoassistant.Friend;
 
 
@@ -85,7 +87,7 @@ public class PSfriend extends PrepStatememt{
        email = "'" + email + "'";   
        String query = "SELECT * FROM friend WHERE user_email = " + email;
        System.out.println(query);
-       LinkedList<Friend> list = new LinkedList<>();
+          LinkedList<Friend> list = new LinkedList<>();
       
        try{
             resultSet = statement.executeQuery(query);
